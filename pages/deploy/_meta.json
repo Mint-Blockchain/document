@@ -1,0 +1,6 @@
+{
+  "contracts": "Mint Contracts",
+  "use-hardhat": "Use Hardhat",
+  "use-foundry": "Use Foundry",
+  "use-remix": "Use Remix"
+}

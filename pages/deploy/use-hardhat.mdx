@@ -1,0 +1,35 @@
+# Hardhat
+
+[Hardhat](https://hardhat.org/) is an Ethereum development environment. Compile your contracts and run them on a development network. Get Solidity stack traces, console.log and more.
+
+You can use Hardhat to edit, compile, debug, and deploy your smart contracts to Mint.
+
+---
+
+# Using Hardhat with Mint
+
+To configure [Hardhat](https://hardhat.org/) to deploy smart contracts to Mint, update your project’s `hardhat.config.ts` file by adding Mint as a network:
+
+```typescript
+networks: {
+    // for mainnet
+   "mint-mainnet": {
+     url: "Coming Soon",
+     accounts: [process.env.PRIVATE_KEY as string],
+     gasPrice: 1000000000,
+   },
+   // for Sepolia testnet
+   "mint-sepolia": {
+     url: "https://testnet-rpc.mintchain.io",
+     accounts: [process.env.PRIVATE_KEY as string]
+     gasPrice: 1000000000,
+   },
+   // for local dev environment
+   "mint-local": {
+     url: "http://localhost:8545",
+     accounts: [process.env.PRIVATE_KEY as string],
+     gasPrice: 1000000000,
+   },
+ },
+ defaultNetwork: "mint-local",
+```

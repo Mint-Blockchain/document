@@ -1,0 +1,25 @@
+# Foundry
+
+[Foundry](https://github.com/foundry-rs/foundry) is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.
+
+Foundry consists of:
+
+[Forge](https://github.com/foundry-rs/foundry/blob/master/crates/forge): Ethereum testing framework (like Truffle, Hardhat and DappTools).
+[Cast](https://github.com/foundry-rs/foundry/blob/master/crates/cast): Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+[Anvil](https://github.com/foundry-rs/foundry/blob/master/crates/anvil): Local Ethereum node, akin to Ganache, Hardhat Network.
+[Chisel](https://github.com/foundry-rs/foundry/blob/master/crates/chisel): Fast, utilitarian, and verbose solidity REPL.
+​
+
+## Testnet
+
+### Deploying a smart contract
+
+```bash
+forge create ... --rpc-url=https://testnet-rpc.mintchain.io
+```
+
+### Verifying a smart contract
+
+```bash
+forge verify-contract ... --chain-id 1686
+```

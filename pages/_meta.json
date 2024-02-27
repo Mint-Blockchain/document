@@ -1,0 +1,13 @@
+{
+  "index": "Introduction",
+  "build": {
+    "title": "Build On Mint"
+  },
+  "using-mint": "Using Mint",
+  "tools": {
+    "title": "Tools"
+  },
+  "deploy": {
+    "title": "Deploy Your APP"
+  }
+}
