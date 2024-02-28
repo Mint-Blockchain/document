@@ -1,10 +1,13 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function SwitchNetworkButton() {
   const onClick = async () => {
     // @ts-ignore
     if (window.ethereum) {
       const params = {
         chainId: "0x696",
-        chainName: "Mint Testnet Public",
+        chainName: "Mint Testnet",
         nativeCurrency: {
           name: "Sepolia Ether",
           symbol: "ETH",
@@ -19,22 +22,26 @@ export default function SwitchNetworkButton() {
         method: "wallet_addEthereumChain",
         params: [params],
       });
+      toast.success("Successfully added network to your wallet");
     }
   };
 
   return (
-    <button
-      style={{
-        fontSize: "16px",
-        padding: "12px 24px",
-        color: "#ebf5ed",
-        fontWeight: "bold",
-        background: "#30BF54",
-        borderRadius: "24px",
-      }}
-      onClick={onClick}
-    >
-      Add Network
-    </button>
+    <>
+      <button
+        style={{
+          fontSize: "16px",
+          padding: "12px 24px",
+          color: "#ebf5ed",
+          fontWeight: "bold",
+          background: "#30BF54",
+          borderRadius: "24px",
+        }}
+        onClick={onClick}
+      >
+        Add Network
+      </button>
+      <ToastContainer />
+    </>
   );
 }
