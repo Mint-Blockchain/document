@@ -10,16 +10,73 @@ Foundry consists of:
 [Chisel](https://github.com/foundry-rs/foundry/blob/master/crates/chisel): Fast, utilitarian, and verbose solidity REPL.
 ​
 
-## Testnet
+## Get Started with Foundry
 
-### Deploying a smart contract
+1. Install Foundry
+
+- Linux or MaxOS
 
 ```bash
-forge create ... --rpc-url=https://testnet-rpc.mintchain.io
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
 ```
 
-### Verifying a smart contract
+- Windows
 
 ```bash
-forge verify-contract ... --chain-id 1686
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh
+cargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil --bins --locked
+```
+
+2. Create a project
+
+```bash
+forge init foundry
+```
+
+3. Navigate to the Source in the project and create your smart contract
+
+```bash
+cd src
+touch MyToken.sol
+```
+
+4. Input your smart contract or use the sample contract below.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract HelloWorld {
+    string public greet = "Hello World!";
+}
+```
+
+5. Install OpenZeppelin contracts as a dependency
+
+```bash
+forge install OpenZeppelin/openzeppelin-contracts
+```
+
+6. Compile contract
+
+```bash
+forge build
+```
+
+## Deploying Your Smart Contract
+
+Deploying a contract with Forge is a simple process that can be done with a single command. However, it requires an RPC endpoint, a private key that has funds, and any arguments for the constructor of the contract.
+
+For example, the `MyToken.sol` contract requires an initial supply of tokens to be specified in its constructor, so the command to deploy it on a network will include the argument of 100.
+
+To deploy the `MyToken.sol` contract, use the command that corresponds to the Mint chain’s RPC URL while running the `forge create` command:
+
+### Testnet
+
+```bash
+forge create --rpc-url "https://testnet-rpc.mintchain.io"
+--constructor-args 100 \
+--private-key YOUR_PRIVATE_KEY \
+src/MyToken.sol:MyToken
 ```

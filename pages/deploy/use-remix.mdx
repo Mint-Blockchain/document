@@ -10,11 +10,28 @@ import { Callout } from "nextra/components";
 
 [The Remix Project](https://remix-project.org/) is a rich toolset that can be used for the entire journey of contract development by users of any knowledge level, and as a learning lab for teaching and experimenting with Ethereum.
 
-## Testnet
+## Getting Started with Remix
 
-In case you haven't added Mint Network to your wallet yet, click on the icon next to the <img style={{display: 'inline-block'}} src="/assets/remix-env.jpg" alt="Remix button" /> label. This will take you to Chainlist's website where you can look up Mint Mainnet and Testnet settings and add them to your wallet.
+1. Visit Remix to get started.
+2. Under **Featured Plugins**, select **Solidity**.
+3. Navigate to the **File Explorer** and click ”**+**” to create a Smart Contract
+4. Input your smart contract or use the sample contract below.
 
-<br />
-<div style={{ textAlign: "center", borderRadius: 4, overflow: "hidden" }}>
-  <img src="/assets/remix-1.jpg" alt="Use remix" />
-</div>
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.17;
+
+contract HelloWorld {
+    string public greet = "Hello World!";
+}
+```
+
+5. Navigate to the **Compile** sidebar option and click Compile.
+
+## Deploying Your Smart Contract
+
+Once you have written your Smart Contract in Remix, you can navigate to the sidebar option to Compile your contract.
+
+1. Change the top **ENVIRONMENT** dropdown from ”**Javascript**” to ”**Injected Web3**”
+2. This will take you MetaMask - Press connect in Metamask to allow Remix access.
+3. Add your network to Metamask using [Network Information](/build/network) or you can add `Mint Testnet` from [ChainList](https://chainlist.org/chain/1686)

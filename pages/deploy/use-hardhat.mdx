@@ -6,30 +6,103 @@ You can use Hardhat to edit, compile, debug, and deploy your smart contracts to 
 
 ---
 
-# Using Hardhat with Mint
+## Creating a Hardhat Project
 
-To configure [Hardhat](https://hardhat.org/) to deploy smart contracts to Mint, update your project’s `hardhat.config.ts` file by adding Mint as a network:
+1. Create a directory for your project:
+
+```bash
+mkdir hardhat && cd hardhat
+```
+
+2. Initialize the project, which will create a `package.json` file
+
+```bash
+npm init -y
+```
+
+3. Install Hardhat
+
+```bash
+npm install hardhat
+```
+
+4. Create a project
+
+```bash
+npx hardhat
+```
+
+5. Create an empty `hardhat.config.js` and install the Ethers plugin to use the Ethers.js library to interact with the network.
+
+```bash
+npm install @nomiclabs/hardhat-ethers ethers
+```
+
+## Creating Your Smart Contract
+
+1. Create a `contracts` directory
+
+```bash
+mkdir contracts && cd contracts
+```
+
+2. Create `your_contract.sol` file in `contracts` directory
+
+```bash
+touch your_contract.sol
+```
+
+## Creating Your Configuration File
+
+Modify the Hardhat configuration file and create a secure file to store your private key in.
+
+1. Create a `secrets.json` file to store your private key
+
+```bash
+touch secrets.json
+```
+
+2. Add your private key to `secrets.json`
+
+```json
+{
+  "privateKey": "YOUR-PRIVATE-KEY-HERE"
+}
+```
+
+3. Add the file to your project’s `.gitignore`, and never reveal your private key.
+
+4. Modify the `hardhat.config.js` file
+   - Import the Ethers.js plugin
+   - Import the `secrets.json` file
+   - Inside the `module.exports` add the Mint network configuration
 
 ```typescript
-networks: {
-    // for mainnet
-   "mint-mainnet": {
-     url: "Coming Soon",
-     accounts: [process.env.PRIVATE_KEY as string],
-     gasPrice: 1000000000,
-   },
-   // for Sepolia testnet
-   "mint-sepolia": {
-     url: "https://testnet-rpc.mintchain.io",
-     accounts: [process.env.PRIVATE_KEY as string]
-     gasPrice: 1000000000,
-   },
-   // for local dev environment
-   "mint-local": {
-     url: "http://localhost:8545",
-     accounts: [process.env.PRIVATE_KEY as string],
-     gasPrice: 1000000000,
-   },
- },
- defaultNetwork: "mint-local",
+require('@nomiclabs/hardhat-ethers');
+const { privateKey } = require('./secrets.json');
+
+module.exports = {
+  solidity: "0.8.20",
+  defaultNetwork: "mint-local",
+  networks: {
+      // for mainnet
+    "mint-mainnet": {
+      url: "Coming Soon",
+      accounts: [process.env.PRIVATE_KEY as string],
+      gasPrice: 1000000000,
+    },
+    // for Sepolia testnet
+    "mint-sepolia": {
+      url: "https://testnet-rpc.mintchain.io",
+      accounts: [process.env.PRIVATE_KEY as string]
+      gasPrice: 1000000000,
+    },
+    // for local dev environment
+    "mint-local": {
+      url: "http://localhost:8545",
+      accounts: [process.env.PRIVATE_KEY as string],
+      gasPrice: 1000000000,
+    },
+  },
+}
 ```
