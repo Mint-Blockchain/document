@@ -6,15 +6,15 @@ export default function SwitchNetworkButton() {
     // @ts-ignore
     if (window.ethereum) {
       const params = {
-        chainId: "0x696",
-        chainName: "Mint Testnet",
+        chainId: "0x697",
+        chainName: "Mint Sepolia Testnet",
         nativeCurrency: {
           name: "Sepolia Ether",
           symbol: "ETH",
           decimals: 18,
         },
-        rpcUrls: ["https://testnet-rpc.mintchain.io"],
-        blockExplorerUrls: ["https://testnet-explorer.mintchain.io"],
+        rpcUrls: ["https://sepolia-testnet-rpc.mintchain.io"],
+        blockExplorerUrls: ["https://sepolia-testnet-explorer.mintchain.io"],
       };
 
       // @ts-ignore

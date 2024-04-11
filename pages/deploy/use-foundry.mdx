@@ -5,8 +5,11 @@
 Foundry consists of:
 
 [Forge](https://github.com/foundry-rs/foundry/blob/master/crates/forge): Ethereum testing framework (like Truffle, Hardhat and DappTools).
+
 [Cast](https://github.com/foundry-rs/foundry/blob/master/crates/cast): Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+
 [Anvil](https://github.com/foundry-rs/foundry/blob/master/crates/anvil): Local Ethereum node, akin to Ganache, Hardhat Network.
+
 [Chisel](https://github.com/foundry-rs/foundry/blob/master/crates/chisel): Fast, utilitarian, and verbose solidity REPL.
 ​
 
@@ -75,7 +78,7 @@ To deploy the `MyToken.sol` contract, use the command that corresponds to the Mi
 ### Testnet
 
 ```bash
-forge create --rpc-url "https://testnet-rpc.mintchain.io"
+forge create --rpc-url "https://sepolia-testnet-rpc.mintchain.io"
 --constructor-args 100 \
 --private-key YOUR_PRIVATE_KEY \
 src/MyToken.sol:MyToken
