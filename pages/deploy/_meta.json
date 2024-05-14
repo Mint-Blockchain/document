@@ -1,5 +1,6 @@
 {
   "contracts": "Mint Contracts",
+  "tokens": "Bridged Token Addresses",
   "use-hardhat": "Use Hardhat",
   "use-foundry": "Use Foundry",
   "use-remix": "Use Remix"
