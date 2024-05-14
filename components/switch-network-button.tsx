@@ -1,11 +1,27 @@
+import { useMemo } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function SwitchNetworkButton() {
-  const onClick = async () => {
-    // @ts-ignore
-    if (window.ethereum) {
-      const params = {
+export default function SwitchNetworkButton({
+  type,
+}: {
+  type: "mainnet" | "testnet";
+}) {
+  const chainParam = useMemo(() => {
+    if (type === "mainnet") {
+      return {
+        chainId: "0xb9",
+        chainName: "Mint Mainnet",
+        nativeCurrency: {
+          name: "Ether",
+          symbol: "ETH",
+          decimals: 18,
+        },
+        rpcUrls: ["https://rpc.mintchain.io"],
+        blockExplorerUrls: ["https://explorer.mintchain.io"],
+      };
+    } else {
+      return {
         chainId: "0x697",
         chainName: "Mint Sepolia Testnet",
         nativeCurrency: {
@@ -16,11 +32,16 @@ export default function SwitchNetworkButton() {
         rpcUrls: ["https://sepolia-testnet-rpc.mintchain.io"],
         blockExplorerUrls: ["https://sepolia-testnet-explorer.mintchain.io"],
       };
+    }
+  }, [type]);
 
+  const onClick = async () => {
+    // @ts-ignore
+    if (window.ethereum) {
       // @ts-ignore
       await window.ethereum.request({
         method: "wallet_addEthereumChain",
-        params: [params],
+        params: [chainParam],
       });
       toast.success("Successfully added network to your wallet");
     }
@@ -39,7 +60,7 @@ export default function SwitchNetworkButton() {
         }}
         onClick={onClick}
       >
-        Add Network
+        Add {chainParam.chainName}
       </button>
       <ToastContainer />
     </>
