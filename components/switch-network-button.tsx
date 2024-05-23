@@ -17,7 +17,7 @@ export default function SwitchNetworkButton({
           symbol: "ETH",
           decimals: 18,
         },
-        rpcUrls: ["https://rpc.mintchain.io", "https://global.rpc.mintchain.io", "https://asia.rpc.minchain.io"],
+        rpcUrls: ["https://rpc.mintchain.io", "https://global.rpc.mintchain.io", "https://asia.rpc.mintchain.io"],
         blockExplorerUrls: ["https://explorer.mintchain.io"],
       };
     } else {
