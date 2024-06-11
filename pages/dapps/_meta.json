@@ -1,5 +1,6 @@
 {
-  "rpc": "RPCs",
-  "nft": "NFTs",
+  "rpc": "Dedicated RPCs",
+  "nft": "NFT APIs",
+  "marketplace": "NFT Marketplaces",
   "oracle": "Oracles"
 }
