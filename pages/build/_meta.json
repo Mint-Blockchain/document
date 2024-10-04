@@ -1,5 +1,6 @@
 {
   "network": "Network Information",
   "fees": "Fees",
-  "diffrences": "Differences between Ethereum and Mint"
+  "diffrences": "Differences between Ethereum and Mint",
+  "erc7765": "ERC-7765 Proposal"
 }
