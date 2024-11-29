@@ -3,5 +3,6 @@
   "nft": "NFT APIs",
   "marketplace": "NFT Marketplaces",
   "multisig": "Multisig Wallets",
-  "oracle": "Oracles"
+  "oracle": "Oracles",
+  "dns": "DNS"
 }
