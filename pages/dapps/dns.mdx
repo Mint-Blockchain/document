@@ -10,6 +10,7 @@ The primary capabilities of the SDK include:
 
 2. Reverse Resolution: The SDK facilitates reverse address resolution. This feature makes it possible to determine the primary domain name associated with a given address, even across different blockchains or TLDs, returning Chain Primary Name or TLD Primary Name.
 
+
 <b>Key Terminology:</b>
 
 TLD Primary Name:
@@ -17,6 +18,7 @@ TLD Primary Name:
 ꔷ Every address is able to set TLD Primary Name to configure a reverse resolution domain for each Top-Level Domain, regardless of whether it has been verified or not on SPACE ID.
 
 ꔷ Examples include setting "allen.eth" as TLD Primary Name for .eth, "allen.mint" for .mint, "allen.bnb" for .bnb. 
+
 
 Chain Primary Name:
 
@@ -26,12 +28,14 @@ Chain Primary Name:
 
 ꔷ For instance, "allen.eth" could serve as Chain Primary Name for Ethereum, and "allen.mint" might function as the primary name for Mint Blockchain.
 
+
 By default, all EVM-based domain names are supported for domain resolution in the Web3 Name SDK. Reverse resolution returns a Chain Primary Name for each EVM chain. Project administrators have the flexibility to choose whether to integrate support for all or only specific chains and TLDs. They can also configure custom settings for reverse resolution as needed. This adaptability allows projects to tailor the SDK's functionality to their specific requirements.
 
 
 ##### Get Started
 
 Developers can resolve web3 domain name or reverse resolve conventional address with Web3 Name SDK with zero configuration.
+
 
 <b>Install​</b>
 
@@ -45,6 +49,7 @@ const nextConfig = {
 };
 ```
 
+
 <b>1. Setup client​​</b>
 
 ```
@@ -52,6 +57,7 @@ import { createWeb3Name } from "@web3-name-sdk/core";
 
 const web3Name = createWeb3Name();
 ```
+
 
 <b>2.Resolve a domain name​​​</b>
 
@@ -66,6 +72,7 @@ const address = await web3name.getAddress("beresnev.crypto");
 
 const address = await web3name.getAddress("registry.mint");
 ```
+
 
 <b>3. Resolve an address​​</b>
 
@@ -91,6 +98,7 @@ const name = await web3name.getDomainName({
 });
 ```
 
+
 <b>4. Record​</b>
 
 Domain text records can be fetched by providing domain name and the key. For example, the avatar record of mint.mint is returned from this method given key name avatar:
@@ -102,6 +110,7 @@ const record = await sid.getDomainRecord({
 });
 ```
 
+
 <b>5. Metadata</b>
 
 Domain metadata can be fetched by SDK directly.
@@ -110,3 +119,4 @@ Domain metadata can be fetched by SDK directly.
 // requesting
 const metadata = await web3Name.getMetadata({ name: "public.mint" });
 ```
+
