@@ -3,5 +3,6 @@
   "bridges": "Bridges",
   "faucets": "Faucets",
   "nodes": "JSON-RPCs",
-  "operators": "Node Operators"
+  "operators": "Node Operators",
+  "thegraph": "Data Indexers"
 }
