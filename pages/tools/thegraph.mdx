@@ -24,7 +24,7 @@ Go to the [Subgraph Studio](https://thegraph.com/studio/) and connect your walle
 
 You will then land on your subgraph's page. All the CLI commands you need will be visible on the right side of the page:
 
-![CLI commands](https://lh7-us.googleusercontent.com/docsz/AD_4nXe3YvCxiOH_LupSWe8zh9AmP-VrV4PlOq3f7Ix6hNlBUYcANUFuLuVIWR74OGiBs0nrugTyT0v3o6RPmTsgHONdv_ZJNWtcDWEkRntXPHlQGFcqmEBa-D6j4aoIPzUKYdOJMVUPu8O3fwjdZ4IaXXZoTzY?key=fnI6SyFgXU9SZRNX5C5vPQ)
+![CLI commands](/public/assets/thegraph-cli.png)
 
 ### Install the Graph CLI⁠
 
@@ -39,12 +39,12 @@ npm install -g @graphprotocol/graph-cli
 You can copy this directly from your subgraph page to include your specific subgraph slug:
 
 ```shell
-graph init --studio <SUBGRAPH_SLUG>
+graph init  <SUBGRAPH_SLUG>
 ```
 
 You'll be prompted to provide some info on your subgraph like this:
 
-![cli sample](https://lh7-us.googleusercontent.com/docsz/AD_4nXdTAUsUb5vbs3GtCrhKhuXM1xYoqqooYTxw6lfJfYtLJNP8GKVOhTPmjxlM1b6Qpx-pXNVOzRuc8BL12wZXqy4MIj8ja0tp15znfuJD_Mg84SSNj3JpQ4d31lNTxPYnpba4UOzZx8pmgOIsbI7vCz70v9gC?key=fnI6SyFgXU9SZRNX5C5vPQ)
+![cli sample](/public/assets/thegraph-init.png)
 
 Simply have your contract verified on the block explorer, and the CLI will automatically obtain the ABI and set up your subgraph. The default settings will generate an entity for each event.
 
@@ -52,18 +52,23 @@ Simply have your contract verified on the block explorer, and the CLI will autom
 
 ### Deploy to Subgraph Studio⁠
 
-First, run these commands in your terminal
+Authenticate within the CLI, build and deploy your Subgraph to the Studio.You can copy these commands directly from your subgraph's page in Studio to include your specific deploy key and subgraph slug:
 
+Authenticate in CLI
 ```shell
-graph codegen
-graph build
+graph auth  <DEPLOY_KEY>
 ```
-
-Then, invoke these commands to authenticate and deploy your subgraph. You can copy these commands directly from your subgraph's page in Studio to include your specific deploy key and subgraph slug:
-
+Enter Subgraph
 ```shell
-graph auth --studio <DEPLOY_KEY>
-graph deploy --studio <SUBGRAPH_SLUG>
+cd <SUBGRAPH_SLUG>
+```
+Build Subgraph
+```shell
+graph codegen && graph build
+```
+Deploy Subgraph
+```shell
+graph deploy  <SUBGRAPH_SLUG>
 ```
 
 You will be asked for a version label. You can enter something like `V0.0.1`, but you're free to choose the format.
