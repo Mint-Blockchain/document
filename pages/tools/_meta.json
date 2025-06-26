@@ -4,5 +4,6 @@
   "faucets": "Faucets",
   "nodes": "JSON-RPCs",
   "operators": "Node Operators",
-  "thegraph": "Data Indexers"
+  "thegraph": "Data Indexers",
+  "subquery": "SubQuery Data Indexer"
 }
