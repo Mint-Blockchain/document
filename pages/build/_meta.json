@@ -1,7 +1,8 @@
 {
   "network": "Network Information",
+  "contracts": "Mint Contracts",
+  "tokens": "Bridged Tokens",
   "fees": "Fees",
-  "differences": "Differences between Ethereum and Mint",
   "erc7765": "ERC-7765 Proposal",
   "nips": "NIPs Platform"
 }
