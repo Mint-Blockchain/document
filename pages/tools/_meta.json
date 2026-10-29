@@ -4,5 +4,6 @@
   "faucets": "Faucets",
   "nodes": "JSON-RPCs",
   "operators": "Node Operators",
+  "envio": "Envio",
   "thegraph": "Data Indexers"
 }

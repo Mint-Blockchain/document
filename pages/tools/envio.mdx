@@ -1,0 +1,62 @@
+# Envio
+
+[Envio](https://envio.dev/?utm_source=mint&utm_medium=partner-docs) is the data layer for blockchain apps. It gives Mint developers the fastest, most flexible way to get real-time and historical onchain data, from a single GraphQL API to raw high-speed access, with managed hosting on Envio Cloud. Envio's HyperIndex natively supports indexing any EVM chain out of the box, so you can index Mint by pointing an indexer at your own Mint RPC as the data source.
+
+## Quick start
+
+An indexer only takes a few minutes to scaffold and run. To get started, follow these three steps:
+
+1. [Initialize your indexer](#1-initialize-your-indexer)
+2. [Configure Mint as an RPC data source](#2-configure-mint-as-an-rpc-data-source)
+3. [Run and query](#3-run-and-query)
+
+Here's a step by step walkthrough:
+
+## 1. Initialize your indexer
+
+Envio can auto-generate a working indexer from any verified contract. On your local machine, run the following command:
+
+```shell
+pnpx envio init
+```
+
+The CLI reads the contract ABI and generates the schema, config, and event handlers for you. You write your event handlers in TypeScript, JavaScript, or ReScript.
+
+## 2. Configure Mint as an RPC data source
+
+Mint is an EVM chain, so you can index it via your own RPC endpoint. In your `config.yaml`, add an `rpc` entry marked `for: sync` to the Mint chain so HyperIndex uses your RPC as the historical data source:
+
+```yaml
+chains:
+  - id: <MINT_CHAIN_ID>
+    rpc:
+      - url: https://rpc.mintchain.io
+        for: sync
+    start_block: 0
+    contracts:
+      - name: MyContract
+        address: "0xYourContractAddress"
+        handler: src/EventHandlers.ts
+        events:
+          - event: "..."
+```
+
+For every configuration option, see the [RPC data source guide](https://docs.envio.dev/docs/HyperIndex/rpc-sync?utm_source=mint&utm_medium=partner-docs) and the [configuration file reference](https://docs.envio.dev/docs/HyperIndex/configuration-file?utm_source=mint&utm_medium=partner-docs).
+
+## 3. Run and query
+
+Once your handlers are written, start the indexer. Envio serves your indexed data through a `GraphQL` API, and you can explore it in the local Hasura playground while your indexer runs.
+
+Envio handles reorgs, real-time and historical data, and historical backfills at 30,000+ events per second. You can aggregate data across multiple EVM and non-EVM networks in a single indexer.
+
+## Deploy on Envio Cloud
+
+When you're ready for production, you can self-host your indexer or deploy it to [Envio Cloud](https://docs.envio.dev/docs/HyperIndex/hosted-service?utm_source=mint&utm_medium=partner-docs), a fully managed hosting service with git-based deploys, monitoring, zero-downtime upgrades, and backups.
+
+## Additional resources
+
+- [HyperIndex overview](https://docs.envio.dev/docs/HyperIndex/overview?utm_source=mint&utm_medium=partner-docs)
+- [Quickstart](https://docs.envio.dev/docs/HyperIndex/quickstart?utm_source=mint&utm_medium=partner-docs)
+- [Supported networks](https://docs.envio.dev/docs/HyperIndex/supported-networks?utm_source=mint&utm_medium=partner-docs)
+- [Envio Cloud deployment](https://docs.envio.dev/docs/HyperIndex/hosted-service-deployment?utm_source=mint&utm_medium=partner-docs)
+- [Benchmarks](https://docs.envio.dev/docs/HyperIndex/benchmarking?utm_source=mint&utm_medium=partner-docs)
